@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Card from './Component/Card/Card';
+import Api from './Component/Card/Api';
 function App() {
+  const align = {
+    textAlign : 'center'
+  } 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={align}>29+ Image Information </h1>
+    {Api.map((val =>{
+       return(
+        <Card author = {val.author} download_url = {val.download_url} id ={val.id} url = {val.url} key ={val.id} ></Card>
+      )
+    }))}
     </div>
   );
 }
